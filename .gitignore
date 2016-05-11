@@ -1,0 +1,174 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class kash {
+	
+    public static void main(String[] args) throws IOException {
+    	
+    	boolean run = true;
+    	while(run){
+         
+    	String csvFile = "C:/Users/Ahoss/Desktop/CrystalReportViewer-7.csv";
+    	BufferedReader br = null;
+    	String line = "";
+    	String cvsSplitBy = ",";
+
+    	String newline = System.getProperty("line.separator");
+    	   	
+    			System.out.println(newline+newline+newline+
+    			"This program is designed to evaluate the stock safety report.  "
+    			+ "Export Stock Safety out of Crystal as CSV and save to desktop."
+    			+newline+newline+"Press 1 to see suggested orders.  "
+    			+newline+ "Press 2 to see suggusted orders by order point."
+    			+newline+"Press 3 to see suggested Metal orders."+newline+
+    			"Press 4 to see suggested Safety orders. "+newline+
+    			"Press 5 to see multiple of 2 month usage in stock of every part."+newline+"Press 6 to get individual part's 2 month usage: ");
+    	
+    	Scanner kb;
+		kb = new Scanner(System.in);
+			
+			int x = kb.nextInt( );
+			
+    	try {
+
+    		br = new BufferedReader(new FileReader(csvFile));
+    		while ((line = br.readLine()) != null) {
+
+    		    // use comma as separator
+    			String[] country = line.split(cvsSplitBy);
+    			
+    			double safety=(Double.valueOf(country[8]));
+    			double balance=(Double.valueOf(country[7]));
+    			double twomth=(Double.valueOf(country[2]));
+    			double orderpoint=(Double.valueOf(country[9]));
+    			double z=(Double.valueOf(balance) / Double.valueOf(twomth));
+    			double daily=(twomth/60);
+    			double onemth=(twomth/2);
+    			double leadtime=(Double.valueOf(country[11]));
+    			String vendor=(country[1]);
+    			String ID=(country[0]);
+    			
+    		
+    			if (x==1){	
+    				if (z<1.5){
+    					if (!ID.equals("130P")){
+    						if (!ID.equals("ACW11CL")){	
+    							if (!ID.equals("BGB1")){
+    								if (!ID.equals("BGB2")){
+        								if (!ID.equals("BGC1L")){
+        									if (!ID.equals("6DM304")){
+        										if (!ID.equals("6DM404")){
+        											if (!ID.equals("9201A")){
+        									
+    					if (orderpoint != 10){
+    						if (orderpoint != 5){
+    						
+    						if ((1.1*onemth)>balance-(leadtime*daily)){
+    					
+    			System.out.println("Order "+twomth+" of "+country[0]+" from vendor:   "+vendor);
+    			
+}}}}}}}}}}}}}
+
+    			if(x==2){
+					if (!ID.equals("130P")){
+						if (!ID.equals("ACW11CL")){	
+							if (!ID.equals("BGB1")){
+								if (!ID.equals("BGB2")){
+    								if (!ID.equals("BGC1L")){
+    									if (!ID.equals("6DM304")){
+    										if (!ID.equals("6DM404")){
+    											if (!ID.equals("9201A")){
+    												if (!ID.equals("PLS112")){
+    																	
+    				if (orderpoint != 10){
+    					if (orderpoint != 5){
+    						if (!ID.equals("130P")){
+    				double negorderpoint=(balance-(1*orderpoint));
+    				if(negorderpoint<0){
+    					if(orderpoint != 10){
+    				System.out.println("Order "+(orderpoint - balance+(orderpoint))+" of "
+    						+ country[0]+" from "+vendor);
+}}}}}}}}}}}}}}}//15
+    			
+    			if(x==3){
+    				
+    			if((vendor.equals("1562"))||(vendor.equals("2179"))||(vendor.equals("2798"))){
+    				if (!ID.equals("130P")){
+						if (!ID.equals("ACW11CL")){	
+							if (!ID.equals("BGB1")){
+								if (!ID.equals("BGB2")){
+    								if (!ID.equals("BGC1L")){
+    									if (!ID.equals("6DM304")){
+    										if (!ID.equals("6DM404")){
+    											if (!ID.equals("9201A")){
+    													if (orderpoint != 10){
+    														if (orderpoint != 5){
+    															if ((1.8*onemth)>balance-(leadtime*daily)){
+					
+			System.out.println("Order "+twomth+" of "+country[0]+" from vendor:   "+vendor);
+			
+}}}}}}}}}}}}}
+    			
+    			if(x==4){
+    				
+        		
+        				if (!ID.equals("130P")){
+    						if (!ID.equals("ACW11CL")){	
+    							if (!ID.equals("BGB1")){
+    								if (!ID.equals("BGB2")){
+        								if (!ID.equals("BGC1L")){
+        									if (!ID.equals("6DM304")){
+        										if (!ID.equals("6DM404")){
+        											if (!ID.equals("9201A")){
+        													if (orderpoint != 10){
+        														if (orderpoint != 5){
+        															if (0>(balance-safety)){
+    					
+    			System.out.println("Order "+twomth+" of "+country[0]+" from vendor:   "+vendor);
+    			
+}}}}}}}}}}}}
+    			
+    			if(x==5){
+    				
+            		
+    				if (!ID.equals("130P")){
+						if (!ID.equals("ACW11CL")){	
+							if (!ID.equals("BGB1")){
+								if (!ID.equals("BGB2")){
+    								if (!ID.equals("BGC1L")){
+    									if (!ID.equals("6DM304")){
+    										if (!ID.equals("6DM404")){
+    											if (!ID.equals("9201A")){
+    													if (orderpoint != 10){
+    														if (orderpoint != 5){
+    															
+					
+			System.out.println(country[0]+" has "+(balance/twomth)+" of its 2 month usage which is "+twomth);
+			
+}}}}}}}}}}}
+    			
+    			if (x==6){
+    				
+    				System.out.println("Enter part ID: ");
+    				
+    				Scanner kb2;
+    				kb2 = new Scanner(System.in);
+    					
+    					String x2 = kb2.toString( );
+    					
+    					if (x2==ID){
+    						
+    						System.out.println("The two month usage of "+ID+" is: "+twomth);
+    					}
+    			}
+    			
+    			
+}}
+    	
+finally{br.close();
+
+}}}}
